@@ -7,7 +7,7 @@
 <meta name="description" content="Aptnex Solutions builds premium responsive, SEO-friendly websites and custom software — hospital management, school/college ERP, payroll, membership portals, and small-scale banking platforms. SMS/WhatsApp auth and payment gateway integration specialists.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#0a1120;
@@ -163,8 +163,8 @@
 
   /* ===== Hero ===== */
   .hero{padding:88px 0 70px;position:relative;}
-  .hero-grid{display:block;max-width:720px;}
-  .hero h1{font-size:clamp(34px,4.6vw,56px);line-height:1.08;margin:18px 0 20px;}
+  .hero-grid{display:grid;grid-template-columns:1fr 0.85fr;gap:64px;align-items:center;}
+  .hero h1{font-size:clamp(32px,4.2vw,54px);line-height:1.08;margin:16px 0 20px;}
   .hero p.lead{font-size:16.5px;color:var(--muted);max-width:520px;margin-bottom:30px;}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px;}
   .btn-primary{
@@ -179,7 +179,36 @@
     transition:border-color .2s, background .2s;
   }
   .btn-ghost:hover{border-color:var(--accent);background:var(--accent-dim);}
-  .hero-tags{display:flex;gap:12px;flex-wrap:wrap;}
+  /* ===== Hero right visual ===== */
+  .hero-visual{display:flex;flex-direction:column;gap:14px;}
+  .hv-card{
+    background:var(--bg-elev);border:1px solid var(--line);border-radius:14px;
+    padding:18px 20px;display:flex;align-items:center;gap:16px;
+    transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+    position:relative;overflow:hidden;
+  }
+  .hv-card::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(135deg,color-mix(in srgb,var(--hc,var(--accent)) 6%,transparent),transparent);
+    pointer-events:none;
+  }
+  .hv-card:hover{transform:translateX(6px);border-color:var(--hc,var(--accent));box-shadow:0 8px 28px rgba(0,0,0,0.25);}
+  .hv-icon{
+    width:44px;height:44px;border-radius:10px;flex-shrink:0;
+    background:color-mix(in srgb,var(--hc,var(--accent)) 15%,transparent);
+    border:1px solid color-mix(in srgb,var(--hc,var(--accent)) 35%,transparent);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--hc,var(--accent));
+  }
+  .hv-icon svg{width:22px;height:22px;}
+  .hv-label{font-size:13.5px;font-weight:700;color:var(--text);}
+  .hv-sub{font-size:11.5px;color:var(--muted);margin-top:2px;font-family:var(--font-mono);}
+  .hv-pill{
+    margin-left:auto;font-family:var(--font-mono);font-size:10px;
+    padding:3px 9px;border-radius:20px;flex-shrink:0;
+    background:color-mix(in srgb,var(--hc,var(--accent)) 14%,transparent);
+    color:var(--hc,var(--accent));border:1px solid color-mix(in srgb,var(--hc,var(--accent)) 30%,transparent);
+  }
   .tag{
     font-family:var(--font-body);font-size:13px;font-weight:700;
     color:var(--text);
@@ -251,24 +280,61 @@
 
   /* ===== Services / modules ===== */
   .modules{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
-  .module{background:var(--bg-elev);padding:28px 24px;transition:background .2s;}
+  .module{
+    background:var(--bg-elev);padding:28px 24px;
+    transition:background .2s, box-shadow .2s;
+    position:relative;overflow:hidden;
+    border-top:3px solid var(--mc,var(--line));
+  }
+  .module::before{
+    content:'';
+    position:absolute;inset:0;
+    background:linear-gradient(160deg,color-mix(in srgb,var(--mc,transparent) 8%,transparent),transparent 60%);
+    pointer-events:none;
+  }
   .module:hover{background:var(--bg-elev-2);}
-  .module .mod-id{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:.05em;}
+  .module .mod-icon{
+    position:absolute;right:16px;bottom:12px;
+    width:88px;height:88px;
+    color:var(--mc,var(--muted-2));
+    opacity:0.13;
+    pointer-events:none;
+    transition:opacity .25s, transform .25s;
+  }
+  .module:hover .mod-icon{opacity:0.22;transform:scale(1.06) rotate(-4deg);}
+  .module .mod-id{font-family:var(--font-mono);font-size:11px;color:var(--mc,var(--accent));letter-spacing:.05em;}
   .module h3{font-size:18px;margin:10px 0 8px;}
   .module p{font-size:13.5px;color:var(--muted);}
 
   /* ===== Tech stack ===== */
-  .stack-group{margin-bottom:34px;}
-  .stack-group h4{font-family:var(--font-mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;}
-  .chip-row{display:flex;flex-wrap:wrap;gap:12px;}
-  .chip{
-    display:flex;align-items:center;gap:10px;
-    background:var(--bg-elev);border:1px solid var(--line);border-radius:9px;
-    padding:11px 16px;font-size:13.5px;font-weight:500;transition:border-color .2s, transform .2s;
+  .stack-group{margin-bottom:44px;}
+  .stack-group h4{
+    font-family:var(--font-mono);font-size:13px;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.1em;margin-bottom:22px;
   }
-  .chip:hover{border-color:var(--line-strong);transform:translateY(-2px);}
-  .chip img{width:18px;height:18px;object-fit:contain;}
-  .chip .glyph{font-family:var(--font-mono);font-size:12px;color:var(--accent-2);}
+  .chip-row{display:flex;flex-wrap:wrap;gap:16px;}
+  .chip{
+    display:flex;align-items:center;gap:15px;
+    background:linear-gradient(135deg,var(--bg-elev),var(--bg-elev-2));
+    border:1px solid var(--line-strong);border-radius:14px;
+    padding:16px 24px;font-size:20px;font-weight:600;
+    position:relative;overflow:hidden;
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .chip::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(32,201,172,0.07),rgba(242,169,59,0.07));
+    opacity:0;transition:opacity .25s ease;border-radius:inherit;
+  }
+  .chip:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 32px rgba(32,201,172,0.18);
+    border-color:var(--accent);
+  }
+  .chip:hover::after{opacity:1;}
+  .chip img{width:28px;height:28px;object-fit:contain;flex-shrink:0;}
+  .chip svg{flex-shrink:0;}
+  .chip .glyph{font-family:var(--font-mono);font-size:18px;color:var(--accent-2);}
 
   /* ===== Work grid ===== */
   .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
@@ -294,17 +360,49 @@
   .why-item p{font-size:13.5px;color:var(--muted);}
 
   /* ===== Testimonials ===== */
-  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-  .testi-card{
-    background:var(--bg-elev);border:1px solid var(--line);border-radius:12px;padding:24px;
-    opacity:0;transform:translateY(24px);
-    transition:opacity .55s ease, transform .55s ease;
+  /* ===== Testimonials marquee ===== */
+  .testi-track-wrap{
+    overflow:hidden;
+    -webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+    mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
   }
-  .testi-card.in{opacity:1;transform:translateY(0);}
-  .testi-card p.quote{font-size:14px;color:var(--text);margin-bottom:18px;line-height:1.65;}
-  .testi-card .who{font-family:var(--font-mono);font-size:11.5px;color:var(--muted);}
-  .testi-card .who b{color:var(--accent);font-weight:600;}
-  .testi-note{font-family:var(--font-mono);font-size:11px;color:var(--muted-2);margin-top:18px;}
+  .testi-track{
+    display:flex;gap:24px;
+    width:max-content;
+    animation:marquee-rtl 32s linear infinite;
+  }
+  .testi-track-wrap:hover .testi-track{animation-play-state:paused;}
+  @keyframes marquee-rtl{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+  .testi-card{
+    width:320px;flex-shrink:0;
+    padding:22px 22px 28px;
+    border-radius:18px 18px 18px 4px;
+    position:relative;
+    box-shadow:0 8px 32px rgba(0,0,0,0.25);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .testi-card::after{
+    content:'';
+    position:absolute;bottom:-12px;left:18px;
+    width:0;height:0;
+    border-left:14px solid transparent;
+    border-right:0 solid transparent;
+    border-top:13px solid var(--tb,#1e293b);
+  }
+  .testi-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.35);}
+  .testi-card p.quote{
+    font-family:'Caveat',cursive;font-size:19px;font-weight:500;
+    color:#fff;line-height:1.55;margin-bottom:16px;
+  }
+  .testi-card .who{
+    font-family:'Caveat',cursive;font-size:15px;font-weight:600;
+    color:rgba(255,255,255,0.75);
+  }
+  .testi-card .who b{color:#fff;font-weight:700;}
+  .testi-note{font-family:var(--font-mono);font-size:11px;color:var(--muted-2);margin-top:28px;text-align:center;}
 
   /* ===== CTA ===== */
   .cta-band{
@@ -449,8 +547,40 @@
           <span class="tag">Payment gateway integration</span>
         </div>
       </div>
-    </div>
-  </section>
+
+      <!-- Hero right visual -->
+      <div class="hero-visual reveal">
+        <div class="hv-card" style="--hc:#3b82f6">
+          <div class="hv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8l3 3-3 3"/><path d="M13 14h4"/></svg></div>
+          <div><div class="hv-label">Websites &amp; Web Apps</div><div class="hv-sub">Responsive · SEO-first</div></div>
+          <span class="hv-pill">LIVE</span>
+        </div>
+        <div class="hv-card" style="--hc:#f43f5e">
+          <div class="hv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg></div>
+          <div><div class="hv-label">Hospital Management</div><div class="hv-sub">Records · Billing · OPD</div></div>
+          <span class="hv-pill">LIVE</span>
+        </div>
+        <div class="hv-card" style="--hc:#a855f7">
+          <div class="hv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3L2 8l10 5 10-5-10-5z"/><path d="M2 8v8c0 2 4.5 4 10 4s10-2 10-4V8"/></svg></div>
+          <div><div class="hv-label">School &amp; College ERP</div><div class="hv-sub">Admissions · Fees · Exams</div></div>
+          <span class="hv-pill">LIVE</span>
+        </div>
+        <div class="hv-card" style="--hc:#f2a93b">
+          <div class="hv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-6"/></svg></div>
+          <div><div class="hv-label">Banking &amp; Investment</div><div class="hv-sub">Collection · Repayments</div></div>
+          <span class="hv-pill">LIVE</span>
+        </div>
+        <div class="hv-card" style="--hc:#22c55e">
+          <div class="hv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V6l-8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div><div class="hv-label">SMS &amp; WhatsApp Auth</div><div class="hv-sub">OTP · Verification</div></div>
+          <span class="hv-pill">LIVE</span>
+        </div>
+        <div class="hv-card" style="--hc:#6366f1">
+          <div class="hv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg></div>
+          <div><div class="hv-label">Payment Gateways</div><div class="hv-sub">Razorpay · PhonePe · Paytm</div></div>
+          <span class="hv-pill">LIVE</span>
+        </div>
+      </div>
 
   <!-- STATS -->
   <div class="stats">
@@ -471,45 +601,68 @@
         <p>From the public-facing website to the internal system that runs behind it — designed, built, tested and integrated by the same team.</p>
       </div>
       <div class="modules reveal">
-        <div class="module">
+        <!-- WEB.CORE -->
+        <div class="module" style="--mc:#3b82f6">
           <span class="mod-id">WEB.CORE</span>
           <h3>Websites &amp; web apps</h3>
           <p>Reactive, adaptive layouts tuned for every screen, built SEO-first from the markup up.</p>
+          <svg class="mod-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8l3 3-3 3"/><path d="M13 14h4"/></svg>
         </div>
-        <div class="module">
+        <!-- HOSPITAL.SYS -->
+        <div class="module" style="--mc:#f43f5e">
           <span class="mod-id">HOSPITAL.SYS</span>
           <h3>Hospital management</h3>
           <p>Patient records, appointments, billing and staff scheduling in one connected system.</p>
+          <svg class="mod-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 8v8M8 12h8"/></svg>
         </div>
-        <div class="module">
+        <!-- SCHOOL.ERP -->
+        <div class="module" style="--mc:#a855f7">
           <span class="mod-id">SCHOOL.ERP</span>
           <h3>School &amp; college ERP</h3>
           <p>Admissions, attendance, fees, exams and parent communication, unified.</p>
+          <svg class="mod-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3L2 8l10 5 10-5-10-5z"/><path d="M2 8v8c0 2 4.5 4 10 4s10-2 10-4V8"/><path d="M6 10.5v5"/></svg>
         </div>
-        <div class="module">
+        <!-- OFFICE.HR -->
+        <div class="module" style="--mc:#f97316">
           <span class="mod-id">OFFICE.HR</span>
           <h3>Office &amp; payroll</h3>
           <p>HR workflows, attendance and payroll processing built around how your office actually works.</p>
+          <svg class="mod-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><path d="M12 12v4M10 14h4"/></svg>
         </div>
-        <div class="module">
+        <!-- MEMBERSHIP.PORTAL -->
+        <div class="module" style="--mc:#20c9ac">
           <span class="mod-id">MEMBERSHIP.PORTAL</span>
           <h3>Membership portals</h3>
           <p>Trusts, associations and political party membership systems — registration, renewals and records.</p>
+          <svg class="mod-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><path d="M16 3.13a4 4 0 010 7.75"/><path d="M21 21v-2a4 4 0 00-3-3.87"/></svg>
         </div>
-        <div class="module">
+        <!-- INVEST.BANKING -->
+        <div class="module" style="--mc:#f2a93b">
           <span class="mod-id">INVEST.BANKING</span>
           <h3>Small-scale banking &amp; investment</h3>
           <p>Online investment collection, scheduled repayments, maturity and interest payouts, handled end to end.</p>
+          <svg class="mod-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-6"/></svg>
         </div>
-        <div class="module">
+        <!-- AUTH.SMS-WA -->
+        <div class="module" style="--mc:#22c55e">
           <span class="mod-id">AUTH.SMS-WA</span>
           <h3>SMS &amp; WhatsApp authentication</h3>
           <p>OTP and identity verification flows built on SMS and WhatsApp Business APIs.</p>
+          <svg class="mod-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V6l-8-4z"/><path d="M9 12l2 2 4-4"/></svg>
         </div>
-        <div class="module">
+        <!-- PAY.GATEWAY -->
+        <div class="module" style="--mc:#6366f1">
           <span class="mod-id">PAY.GATEWAY</span>
           <h3>Payment gateway integration</h3>
           <p>Razorpay, PhonePe, Paytm and more, wired into your product's actual checkout and collection flows.</p>
+          <svg class="mod-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg>
+        </div>
+        <!-- CLOUD.INFRA -->
+        <div class="module" style="--mc:#38bdf8">
+          <span class="mod-id">CLOUD.INFRA</span>
+          <h3>Cloud &amp; infrastructure</h3>
+          <p>Deployment, scaling and monitoring on Google Cloud, AWS and Cloudflare.</p>
+          <svg class="mod-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M17.5 19H9a7 7 0 110-14 5 5 0 015 5h1.5a4.5 4.5 0 110 9z"/><path d="M12 13v5M9.5 15.5l2.5-2.5 2.5 2.5"/></svg>
         </div>
         <div class="module">
           <span class="mod-id">CLOUD.INFRA</span>
@@ -659,20 +812,62 @@
         <span class="eyebrow">Client feedback</span>
         <h2>What partners say after launch.</h2>
       </div>
-      <div class="testi-grid">
-        <div class="testi-card">
+    </div>
+    <div class="testi-track-wrap">
+      <div class="testi-track">
+        <!-- Set 1 -->
+        <div class="testi-card" style="background:#1e3a5f;--tb:#1e3a5f">
           <p class="quote">"Our membership renewals used to be tracked on spreadsheets. Aptnex gave us a portal our members actually use, and our office team finally has one place to look."</p>
-          <div class="who"><b>Trust Administrator</b> · Membership portal client</div>
+          <div class="who"><b>Trust Administrator</b> &nbsp;·&nbsp; Membership portal client</div>
         </div>
-        <div class="testi-card">
+        <div class="testi-card" style="background:#3b1f5e;--tb:#3b1f5e">
           <p class="quote">"The payment collection and repayment scheduling just works — that was the one thing every previous vendor struggled with."</p>
-          <div class="who"><b>Operations Head</b> · Investment platform client</div>
+          <div class="who"><b>Operations Head</b> &nbsp;·&nbsp; Investment platform client</div>
         </div>
-        <div class="testi-card">
+        <div class="testi-card" style="background:#1a4731;--tb:#1a4731">
           <p class="quote">"WhatsApp-based verification cut our support calls down almost immediately. The team clearly understood what we needed before we finished explaining it."</p>
-          <div class="who"><b>IT Coordinator</b> · Institutional client</div>
+          <div class="who"><b>IT Coordinator</b> &nbsp;·&nbsp; Institutional client</div>
+        </div>
+        <div class="testi-card" style="background:#4a1f2e;--tb:#4a1f2e">
+          <p class="quote">"The website went live faster than I expected and ranked on Google within weeks. Really impressed with the SEO-first approach they took."</p>
+          <div class="who"><b>Business Owner</b> &nbsp;·&nbsp; Website client</div>
+        </div>
+        <div class="testi-card" style="background:#2d3748;--tb:#2d3748">
+          <p class="quote">"Our school ERP handles admissions, fees, and parent communication in one place now. Staff adoption was surprisingly smooth."</p>
+          <div class="who"><b>School Principal</b> &nbsp;·&nbsp; ERP client</div>
+        </div>
+        <div class="testi-card" style="background:#1a3a4a;--tb:#1a3a4a">
+          <p class="quote">"Cloud deployment on AWS was seamless. Uptime has been rock-solid since day one and support response is excellent."</p>
+          <div class="who"><b>IT Head</b> &nbsp;·&nbsp; Cloud infrastructure client</div>
+        </div>
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <div class="testi-card" style="background:#1e3a5f;--tb:#1e3a5f">
+          <p class="quote">"Our membership renewals used to be tracked on spreadsheets. Aptnex gave us a portal our members actually use, and our office team finally has one place to look."</p>
+          <div class="who"><b>Trust Administrator</b> &nbsp;·&nbsp; Membership portal client</div>
+        </div>
+        <div class="testi-card" style="background:#3b1f5e;--tb:#3b1f5e">
+          <p class="quote">"The payment collection and repayment scheduling just works — that was the one thing every previous vendor struggled with."</p>
+          <div class="who"><b>Operations Head</b> &nbsp;·&nbsp; Investment platform client</div>
+        </div>
+        <div class="testi-card" style="background:#1a4731;--tb:#1a4731">
+          <p class="quote">"WhatsApp-based verification cut our support calls down almost immediately. The team clearly understood what we needed before we finished explaining it."</p>
+          <div class="who"><b>IT Coordinator</b> &nbsp;·&nbsp; Institutional client</div>
+        </div>
+        <div class="testi-card" style="background:#4a1f2e;--tb:#4a1f2e">
+          <p class="quote">"The website went live faster than I expected and ranked on Google within weeks. Really impressed with the SEO-first approach they took."</p>
+          <div class="who"><b>Business Owner</b> &nbsp;·&nbsp; Website client</div>
+        </div>
+        <div class="testi-card" style="background:#2d3748;--tb:#2d3748">
+          <p class="quote">"Our school ERP handles admissions, fees, and parent communication in one place now. Staff adoption was surprisingly smooth."</p>
+          <div class="who"><b>School Principal</b> &nbsp;·&nbsp; ERP client</div>
+        </div>
+        <div class="testi-card" style="background:#1a3a4a;--tb:#1a3a4a">
+          <p class="quote">"Cloud deployment on AWS was seamless. Uptime has been rock-solid since day one and support response is excellent."</p>
+          <div class="who"><b>IT Head</b> &nbsp;·&nbsp; Cloud infrastructure client</div>
         </div>
       </div>
+    </div>
+    <div class="wrap">
       <p class="testi-note">Sample testimonials shown for layout — swap in direct quotes from your clients before publishing.</p>
     </div>
   </section>
