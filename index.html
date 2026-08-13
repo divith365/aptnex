@@ -1121,8 +1121,9 @@
 
   let mouseX = -50, mouseY = -50;
   window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
+    // Offset slightly so the trail sits completely behind the native cursor tip
+    mouseX = e.clientX + 12;
+    mouseY = e.clientY + 12;
   });
 
   function animateDots() {
