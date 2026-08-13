@@ -7,7 +7,7 @@
 <meta name="description" content="Aptnex Solutions builds premium responsive, SEO-friendly websites and custom software — hospital management, school/college ERP, payroll, membership portals, and small-scale banking platforms. SMS/WhatsApp auth and payment gateway integration specialists.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#0a1120;
@@ -22,7 +22,7 @@
     --line:rgba(237,239,243,0.09);
     --line-strong:rgba(237,239,243,0.16);
     --radius:10px;
-    --font-display:'Unbounded',sans-serif;
+    --font-display:'Space Grotesk',sans-serif;
     --font-body:'Inter',sans-serif;
     --font-mono:'JetBrains Mono',monospace;
   }
@@ -61,38 +61,7 @@
     background:var(--accent);
     box-shadow:0 0 0 3px var(--accent-dim);
   }
-  .eyebrow-lg{
-    font-family:var(--font-body);
-    font-size:14.5px;
-    font-weight:700;
-    letter-spacing:0;
-    text-transform:none;
-    color:var(--text);
-    background:var(--accent-dim);
-    border:1px solid rgba(32,201,172,0.35);
-    padding:9px 16px 9px 12px;
-    border-radius:24px;
-    line-height:1.4;
-    align-items:flex-start;
-    max-width:480px;
-  }
-  .eyebrow-lg::before{width:7px;height:7px;flex:none;margin-top:1px;}
-  h1,h2,h3{
-    font-family:var(--font-display);font-weight:600;letter-spacing:-0.01em;
-    transform-origin:left center;
-    transition:transform .35s cubic-bezier(.2,.8,.2,1), color .35s ease;
-    cursor:default;
-  }
-  h1:hover,h2:hover,h3:hover{transform:scale(1.035);color:var(--accent);}
-  .hero h1{font-weight:700;}
-  .hero h1 em{
-    font-style:normal;
-    background:linear-gradient(100deg,var(--accent),var(--accent-2));
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-  }
-  .hero h1:hover{color:inherit;}
-  .logo{font-family:var(--font-display);letter-spacing:-0.02em;}
-  .work-card h3, .module h3, .why-item h3{transform-origin:left center;}
+  h1,h2,h3{font-family:var(--font-display);font-weight:600;letter-spacing:-0.01em;}
 
   /* ===== Preloader ===== */
   #preloader{
@@ -153,6 +122,7 @@
   .hero{padding:88px 0 70px;position:relative;}
   .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;}
   .hero h1{font-size:clamp(34px,4.6vw,56px);line-height:1.08;margin:18px 0 20px;}
+  .hero h1 em{font-style:normal;color:var(--accent);}
   .hero p.lead{font-size:16.5px;color:var(--muted);max-width:520px;margin-bottom:30px;}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px;}
   .btn-primary{
@@ -206,8 +176,7 @@
   /* ===== Stats ===== */
   .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-elev);}
   .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);}
-  .stat{padding:34px 24px;text-align:center;border-right:1px solid var(--line);cursor:pointer;transition:background .25s ease;}
-  .stat:hover, .stat:focus-visible{background:var(--bg-elev-2);}
+  .stat{padding:34px 24px;text-align:center;border-right:1px solid var(--line);}
   .stat:last-child{border-right:none;}
   .stat .num{font-family:var(--font-display);font-size:clamp(26px,3vw,38px);font-weight:700;color:var(--accent);}
   .stat .num .suffix{color:var(--accent-2);}
@@ -265,12 +234,7 @@
 
   /* ===== Testimonials ===== */
   .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-  .testi-card{
-    background:var(--bg-elev);border:1px solid var(--line);border-radius:12px;padding:24px;
-    opacity:0;transform:translateY(24px);
-    transition:opacity .55s ease, transform .55s ease;
-  }
-  .testi-card.in{opacity:1;transform:translateY(0);}
+  .testi-card{background:var(--bg-elev);border:1px solid var(--line);border-radius:12px;padding:24px;}
   .testi-card p.quote{font-size:14px;color:var(--text);margin-bottom:18px;line-height:1.65;}
   .testi-card .who{font-family:var(--font-mono);font-size:11.5px;color:var(--muted);}
   .testi-card .who b{color:var(--accent);font-weight:600;}
@@ -287,21 +251,19 @@
   .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 
   /* ===== Footer ===== */
-  footer{border-top:1px solid var(--line);background:var(--bg-elev);padding:44px 0 24px;}
-  .footer-top{display:grid;grid-template-columns:1.7fr 1fr;gap:40px;align-items:start;margin-bottom:32px;}
-  .footer-tagline{
-    font-family:var(--font-display);font-weight:700;
-    font-size:clamp(19px,2.4vw,27px);line-height:1.3;
-    margin-top:14px;max-width:520px;
-  }
-  .footer-tagline .char{display:inline-block;opacity:0;transform:translateY(8px);
-    transition:opacity .4s ease, transform .4s ease;}
-  .footer-tagline .char.in{opacity:1;transform:translateY(0);}
+  footer{border-top:1px solid var(--line);background:var(--bg-elev);padding:56px 0 28px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px;}
   .footer-col h5{font-family:var(--font-mono);font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px;}
   .footer-col a, .footer-col p{display:block;font-size:13.5px;color:var(--muted);margin-bottom:9px;}
   .footer-col a:hover{color:var(--accent);}
+  .footer-brand p{color:var(--muted);font-size:13.5px;max-width:280px;margin:14px 0 18px;}
+  .partner-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid var(--line);border-radius:8px;padding:9px 14px;font-size:12.5px;
+  }
+  .partner-badge .glyph{color:var(--accent);font-family:var(--font-mono);}
   .footer-bottom{
-    border-top:1px solid var(--line);padding-top:20px;
+    border-top:1px solid var(--line);padding-top:22px;
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
     font-size:12.5px;color:var(--muted-2);
   }
@@ -331,7 +293,7 @@
     .modules{grid-template-columns:1fr 1fr;}
     .why-grid{grid-template-columns:1fr;}
     .testi-grid{grid-template-columns:1fr;}
-    .footer-top{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
     .work-grid{grid-template-columns:1fr;}
   }
   @media (max-width:640px){
@@ -341,7 +303,7 @@
     .menu-toggle{display:block;}
     .stats-grid{grid-template-columns:1fr 1fr;}
     .modules{grid-template-columns:1fr;}
-    .footer-top{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
     .cta-band{padding:36px 22px;}
     #scroll-readout{display:none;}
   }
@@ -377,7 +339,7 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow eyebrow-lg">Websites, Android &amp; iOS Apps, and Custom Software — for any of your needs.</span>
+        <span class="eyebrow">Software Systems Architects</span>
         <h1>We build the systems <em>institutions</em> run on.</h1>
         <p class="lead">Premium, responsive websites and custom software for hospitals, schools, offices, trusts, political parties, and small-scale financial platforms — engineered to be fast, adaptive across devices, and built to rank.</p>
         <div class="hero-ctas">
@@ -409,10 +371,10 @@
   <!-- STATS -->
   <div class="stats">
     <div class="wrap stats-grid">
-      <div class="stat" tabindex="0"><div class="num"><span class="counter" data-target="20" data-suffix="+">0</span><span class="suffix">+</span></div><div class="lbl">Websites shipped, last 90 days</div></div>
-      <div class="stat" tabindex="0"><div class="num"><span class="counter" data-target="5">0</span><span class="suffix">+</span></div><div class="lbl">Software platforms delivered</div></div>
-      <div class="stat" tabindex="0"><div class="num"><span class="counter" data-target="2">0</span><span class="suffix">0yr</span></div><div class="lbl">Combined dev &amp; QA experience</div></div>
-      <div class="stat" tabindex="0"><div class="num"><span class="counter" data-target="8">0</span><span class="suffix">+</span></div><div class="lbl">Payment gateways integrated</div></div>
+      <div class="stat"><div class="num"><span class="counter" data-target="20" data-suffix="+">0</span><span class="suffix">+</span></div><div class="lbl">Websites shipped, last 90 days</div></div>
+      <div class="stat"><div class="num"><span class="counter" data-target="5">0</span><span class="suffix">+</span></div><div class="lbl">Software platforms delivered</div></div>
+      <div class="stat"><div class="num"><span class="counter" data-target="2">0</span><span class="suffix">0yr</span></div><div class="lbl">Combined dev &amp; QA experience</div></div>
+      <div class="stat"><div class="num"><span class="counter" data-target="8">0</span><span class="suffix">+</span></div><div class="lbl">Payment gateways integrated</div></div>
     </div>
   </div>
 
@@ -613,7 +575,7 @@
         <span class="eyebrow">Client feedback</span>
         <h2>What partners say after launch.</h2>
       </div>
-      <div class="testi-grid">
+      <div class="testi-grid reveal">
         <div class="testi-card">
           <p class="quote">"Our membership renewals used to be tracked on spreadsheets. Aptnex gave us a portal our members actually use, and our office team finally has one place to look."</p>
           <div class="who"><b>Trust Administrator</b> · Membership portal client</div>
@@ -649,10 +611,27 @@
 
 <footer>
   <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-brand-slim">
+    <div class="footer-grid">
+      <div class="footer-brand">
         <div class="logo"><span class="mark">AX</span>Aptnex Solutions</div>
-        <h3 class="footer-tagline" id="footerTagline">Websites, Android &amp; iOS Apps, and Custom Software — for any of your needs.</h3>
+        <p>Premium, responsive and SEO-friendly websites, and custom software for institutions — hospitals, schools, offices, trusts, parties, and financial platforms.</p>
+        <div class="partner-badge"><span class="glyph">✓</span> Trusted technical partner: <a href="https://trustwork.co.in" target="_blank" rel="noopener" style="color:var(--accent);">trustwork.co.in</a></div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <a href="#services">Websites &amp; web apps</a>
+        <a href="#services">Hospital management</a>
+        <a href="#services">School / college ERP</a>
+        <a href="#services">Membership portals</a>
+        <a href="#services">Banking &amp; investment platforms</a>
+      </div>
+      <div class="footer-col">
+        <h5>Work</h5>
+        <a href="https://edisonamp.in" target="_blank" rel="noopener">Edison Amp</a>
+        <a href="https://phytness.in" target="_blank" rel="noopener">Phytness</a>
+        <a href="https://sitarwealth.in" target="_blank" rel="noopener">Sitar Wealth</a>
+        <a href="https://youngstarparty.org" target="_blank" rel="noopener">YoungSTAR Party</a>
+        <a href="https://nationalwomenempowerment.org" target="_blank" rel="noopener">NWE Portal</a>
       </div>
       <div class="footer-col">
         <h5>Contact</h5>
@@ -664,7 +643,7 @@
     </div>
     <div class="footer-bottom">
       <span>© <span id="year"></span> Aptnex Solutions. All rights reserved.</span>
-      <span>Built and tested in-house</span>
+      <span>Built and tested in-house · Technical partner: trustwork.co.in</span>
     </div>
   </div>
 </footer>
@@ -681,15 +660,7 @@
 <script>
   // Preloader boot sequence
   (function(){
-    const lines = [
-      "Initializing systems…",
-      "Connecting cloud infrastructure…",
-      "Authenticating gateways…",
-      "Verifying payment integrations…",
-      "Syncing SMS / WhatsApp channels…",
-      "Compiling dashboard…",
-      "Ready."
-    ];
+    const lines = ["Initializing systems…","Connecting cloud infrastructure…","Verifying payment gateways…","Ready."];
     const textEl = document.getElementById('boot-text');
     const fillEl = document.getElementById('boot-fill');
     let i = 0;
@@ -698,9 +669,9 @@
         textEl.textContent = lines[i];
         fillEl.style.width = ((i+1)/lines.length*100) + '%';
         i++;
-        setTimeout(step, 620);
+        setTimeout(step, 380);
       } else {
-        setTimeout(() => document.getElementById('preloader').classList.add('hide'), 450);
+        setTimeout(() => document.getElementById('preloader').classList.add('hide'), 250);
       }
     };
     step();
@@ -735,81 +706,28 @@
   }, {threshold:0.15});
   revealEls.forEach(el => io.observe(el));
 
-  // Counters — run on first scroll-into-view AND every mouse hover
-  function runCounter(el){
-    if(el._counting) return;
-    el._counting = true;
-    const target = parseInt(el.dataset.target, 10);
-    const duration = 1100;
-    const start = performance.now();
-    function tick(now){
-      const p = Math.min(1, (now-start)/duration);
-      const eased = 1 - Math.pow(1-p, 3);
-      el.textContent = Math.round(eased*target);
-      if(p < 1){ requestAnimationFrame(tick); }
-      else { el._counting = false; }
-    }
-    requestAnimationFrame(tick);
-  }
+  // Counters
   const counters = document.querySelectorAll('.counter');
   const counterIO = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if(!entry.isIntersecting) return;
-      runCounter(entry.target);
-      counterIO.unobserve(entry.target);
+      const el = entry.target;
+      const target = parseInt(el.dataset.target, 10);
+      const duration = 1400;
+      const start = performance.now();
+      function tick(now){
+        const p = Math.min(1, (now-start)/duration);
+        const eased = 1 - Math.pow(1-p, 3);
+        el.textContent = Math.round(eased*target);
+        if(p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      counterIO.unobserve(el);
     });
   }, {threshold:0.5});
   counters.forEach(c => counterIO.observe(c));
 
-  document.querySelectorAll('.stat').forEach(stat => {
-    const counter = stat.querySelector('.counter');
-    const replay = () => runCounter(counter);
-    stat.addEventListener('mouseenter', replay);
-    stat.addEventListener('focus', replay);
-  });
-
-  // Testimonials — reveal one after another on scroll
-  const testiGrid = document.querySelector('.testi-grid');
-  if(testiGrid){
-    const testiCards = testiGrid.querySelectorAll('.testi-card');
-    const testiIO = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(!entry.isIntersecting) return;
-        testiCards.forEach((card, idx) => {
-          setTimeout(() => card.classList.add('in'), idx * 180);
-        });
-        testiIO.unobserve(entry.target);
-      });
-    }, {threshold:0.2});
-    testiIO.observe(testiGrid);
-  }
-
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Footer tagline — letters appear one by one when scrolled into view
-  (function(){
-    const el = document.getElementById('footerTagline');
-    if(!el) return;
-    const text = el.textContent;
-    el.textContent = '';
-    const frag = document.createDocumentFragment();
-    [...text].forEach(ch => {
-      const span = document.createElement('span');
-      span.className = 'char';
-      span.textContent = ch === ' ' ? '\u00A0' : ch;
-      frag.appendChild(span);
-    });
-    el.appendChild(frag);
-    const chars = el.querySelectorAll('.char');
-    const tagIO = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(!entry.isIntersecting) return;
-        chars.forEach((c, idx) => setTimeout(() => c.classList.add('in'), idx * 22));
-        tagIO.unobserve(entry.target);
-      });
-    }, {threshold:0.4});
-    tagIO.observe(el);
-  })();
 </script>
 
 </body>
