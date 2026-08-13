@@ -180,35 +180,8 @@
   }
   .btn-ghost:hover{border-color:var(--accent);background:var(--accent-dim);}
   /* ===== Hero right visual ===== */
-  .hero-visual{display:flex;flex-direction:column;gap:14px;}
-  .hv-card{
-    background:var(--bg-elev);border:1px solid var(--line);border-radius:14px;
-    padding:18px 20px;display:flex;align-items:center;gap:16px;
-    transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
-    position:relative;overflow:hidden;
-  }
-  .hv-card::before{
-    content:'';position:absolute;inset:0;
-    background:linear-gradient(135deg,color-mix(in srgb,var(--hc,var(--accent)) 6%,transparent),transparent);
-    pointer-events:none;
-  }
-  .hv-card:hover{transform:translateX(6px);border-color:var(--hc,var(--accent));box-shadow:0 8px 28px rgba(0,0,0,0.25);}
-  .hv-icon{
-    width:44px;height:44px;border-radius:10px;flex-shrink:0;
-    background:color-mix(in srgb,var(--hc,var(--accent)) 15%,transparent);
-    border:1px solid color-mix(in srgb,var(--hc,var(--accent)) 35%,transparent);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--hc,var(--accent));
-  }
-  .hv-icon svg{width:22px;height:22px;}
-  .hv-label{font-size:13.5px;font-weight:700;color:var(--text);}
-  .hv-sub{font-size:11.5px;color:var(--muted);margin-top:2px;font-family:var(--font-mono);}
-  .hv-pill{
-    margin-left:auto;font-family:var(--font-mono);font-size:10px;
-    padding:3px 9px;border-radius:20px;flex-shrink:0;
-    background:color-mix(in srgb,var(--hc,var(--accent)) 14%,transparent);
-    color:var(--hc,var(--accent));border:1px solid color-mix(in srgb,var(--hc,var(--accent)) 30%,transparent);
-  }
+
+
   .tag{
     font-family:var(--font-body);font-size:13px;font-weight:700;
     color:var(--text);
@@ -548,39 +521,8 @@
         </div>
       </div>
 
-      <!-- Hero right visual -->
-      <div class="hero-visual reveal">
-        <div class="hv-card" style="--hc:#3b82f6">
-          <div class="hv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8l3 3-3 3"/><path d="M13 14h4"/></svg></div>
-          <div><div class="hv-label">Websites &amp; Web Apps</div><div class="hv-sub">Responsive · SEO-first</div></div>
-          <span class="hv-pill">LIVE</span>
-        </div>
-        <div class="hv-card" style="--hc:#f43f5e">
-          <div class="hv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg></div>
-          <div><div class="hv-label">Hospital Management</div><div class="hv-sub">Records · Billing · OPD</div></div>
-          <span class="hv-pill">LIVE</span>
-        </div>
-        <div class="hv-card" style="--hc:#a855f7">
-          <div class="hv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3L2 8l10 5 10-5-10-5z"/><path d="M2 8v8c0 2 4.5 4 10 4s10-2 10-4V8"/></svg></div>
-          <div><div class="hv-label">School &amp; College ERP</div><div class="hv-sub">Admissions · Fees · Exams</div></div>
-          <span class="hv-pill">LIVE</span>
-        </div>
-        <div class="hv-card" style="--hc:#f2a93b">
-          <div class="hv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-6"/></svg></div>
-          <div><div class="hv-label">Banking &amp; Investment</div><div class="hv-sub">Collection · Repayments</div></div>
-          <span class="hv-pill">LIVE</span>
-        </div>
-        <div class="hv-card" style="--hc:#22c55e">
-          <div class="hv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V6l-8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <div><div class="hv-label">SMS &amp; WhatsApp Auth</div><div class="hv-sub">OTP · Verification</div></div>
-          <span class="hv-pill">LIVE</span>
-        </div>
-        <div class="hv-card" style="--hc:#6366f1">
-          <div class="hv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg></div>
-          <div><div class="hv-label">Payment Gateways</div><div class="hv-sub">Razorpay · PhonePe · Paytm</div></div>
-          <span class="hv-pill">LIVE</span>
-        </div>
-      </div>
+      <!-- right side reserved -->
+      <div></div>
     </div>
   </section>
 
