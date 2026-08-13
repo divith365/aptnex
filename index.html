@@ -286,7 +286,19 @@
   .cta-band p{color:var(--muted);margin-bottom:28px;}
   .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 
-  /* ===== Footer ===== */
+  /* ===== Hero tagline override ===== */
+  #heroTagline{
+    white-space:nowrap;
+    max-width:none;
+    font-size:clamp(10px,1.55vw,15px);
+    overflow:hidden;
+    margin-top:0;
+    background:none;
+  }
+  #heroTagline:hover{transform:none;color:inherit;}
+  #heroTagline .char{display:inline-block;}
+
+  /* ===== Footer =====
   footer{border-top:1px solid var(--line);background:var(--bg-elev);padding:44px 0 24px;}
   .footer-top{display:grid;grid-template-columns:1.7fr 1fr;gap:40px;align-items:start;margin-bottom:32px;}
   .footer-tagline{
@@ -366,7 +378,10 @@
       <a href="#stack">Technology</a>
       <a href="#work">Work</a>
       <a href="#why">Why Us</a>
-      <a href="#contact" class="nav-cta">Start a project →</a>
+      <a href="tel:+919880239174" class="nav-cta">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.25 1.02l-2.2 2.21z"/></svg>
+        98802 39174
+      </a>
     </div>
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
   </nav>
@@ -786,17 +801,36 @@
 
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Hero tagline — letters appear one by one when scrolled into view
+  // Hero tagline — colorful gradient letters appear one by one
   (function(){
     const el = document.getElementById('heroTagline');
     if(!el) return;
     const text = el.textContent;
     el.textContent = '';
     const frag = document.createDocumentFragment();
+    // Count printable (non-space) chars for gradient spread
+    const printable = [...text].filter(ch => ch !== ' ').length;
+    let ci = 0;
     [...text].forEach(ch => {
       const span = document.createElement('span');
       span.className = 'char';
       span.textContent = ch === ' ' ? '\u00A0' : ch;
+      if(ch !== ' '){
+        // Interpolate hue: 171 (teal) → 280 (purple) → 330 (pink) → 38 (orange)
+        const stops = [171, 240, 280, 320, 38];
+        const seg  = (stops.length - 1);
+        const pos  = (ci / Math.max(printable - 1, 1)) * seg;
+        const i0   = Math.floor(pos);
+        const i1   = Math.min(i0 + 1, stops.length - 1);
+        const t    = pos - i0;
+        let h = stops[i0] + (stops[i1] - stops[i0]) * t;
+        // wrap hue naturally
+        if(h < 0) h += 360;
+        const s = 75 + Math.sin(t * Math.PI) * 10;
+        const l = 58 + Math.sin(t * Math.PI) * 4;
+        span.style.color = `hsl(${Math.round(h)},${Math.round(s)}%,${Math.round(l)}%)`;
+        ci++;
+      }
       frag.appendChild(span);
     });
     el.appendChild(frag);
@@ -804,10 +838,10 @@
     const tagIO = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if(!entry.isIntersecting) return;
-        chars.forEach((c, idx) => setTimeout(() => c.classList.add('in'), idx * 22));
+        chars.forEach((c, idx) => setTimeout(() => c.classList.add('in'), idx * 28));
         tagIO.unobserve(entry.target);
       });
-    }, {threshold:0.4});
+    }, {threshold:0.2});
     tagIO.observe(el);
   })();
 </script>
