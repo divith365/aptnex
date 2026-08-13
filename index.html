@@ -494,10 +494,10 @@
   /* ===== Cursor Dots ===== */
   .cursor-dot {
     position: fixed; top: -10px; left: -10px;
-    width: 10px; height: 10px;
+    width: 6px; height: 6px;
     background: var(--accent);
     border-radius: 50%; pointer-events: none;
-    z-index: 9999; box-shadow: 0 0 10px var(--accent);
+    z-index: 9999; box-shadow: 0 0 8px var(--accent);
   }
   @media (pointer: coarse) {
     .cursor-dot { display: none !important; }
@@ -1121,9 +1121,9 @@
 
   let mouseX = -50, mouseY = -50;
   window.addEventListener('mousemove', (e) => {
-    // Offset slightly so the trail sits completely behind the native cursor tip
-    mouseX = e.clientX + 12;
-    mouseY = e.clientY + 12;
+    // Offset significantly so the trail completely clears the native cursor arrow body
+    mouseX = e.clientX + 22;
+    mouseY = e.clientY + 22;
   });
 
   function animateDots() {
@@ -1132,8 +1132,8 @@
     cursorDots.forEach((dot, index) => {
       dot.x += (x - dot.x) * 0.15;
       dot.y += (y - dot.y) * 0.15;
-      // Shrink trailing dots slightly and offset by half width/height (5px) to center on cursor
-      dot.el.style.transform = `translate(${dot.x - 5}px, ${dot.y - 5}px) scale(${1 - (index * 0.15)})`;
+      // Shrink trailing dots slightly and offset by half width/height (3px) to center
+      dot.el.style.transform = `translate(${dot.x - 3}px, ${dot.y - 3}px) scale(${1 - (index * 0.15)})`;
       dot.el.style.opacity = 1 - (index * 0.15);
       
       x = dot.x;
