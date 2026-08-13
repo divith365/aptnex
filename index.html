@@ -312,10 +312,13 @@
   /* ===== Work grid ===== */
   .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
   .work-card{
-    background:var(--bg-elev);border:1px solid var(--line);border-radius:12px;
-    padding:24px;transition:border-color .2s, transform .2s;position:relative;
+    background:rgba(255,255,255,0.035);border:1px solid var(--line);border-radius:12px;
+    padding:24px;position:relative;
+    opacity:0;transform:translateY(24px);
+    transition:opacity .5s ease, transform .4s ease, border-color .2s, background .2s;
   }
-  .work-card:hover{border-color:var(--accent);transform:translateY(-3px);}
+  .work-card.in{opacity:1;transform:translateY(0);}
+  .work-card:hover{border-color:var(--accent);transform:translateY(-4px);background:rgba(255,255,255,0.055);}
   .work-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
   .work-card h3{font-size:16.5px;}
   .work-card .kind{font-family:var(--font-mono);font-size:10.5px;color:var(--accent-2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;display:block;}
@@ -956,20 +959,20 @@
     stat.addEventListener('focus', replay);
   });
 
-  // Testimonials — reveal one after another on scroll
-  const testiGrid = document.querySelector('.testi-grid');
-  if(testiGrid){
-    const testiCards = testiGrid.querySelectorAll('.testi-card');
-    const testiIO = new IntersectionObserver((entries) => {
+  // Work grid — cards appear one by one on scroll
+  const workGrid = document.querySelector('.work-grid');
+  if(workGrid){
+    const workCards = workGrid.querySelectorAll('.work-card');
+    const workIO = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if(!entry.isIntersecting) return;
-        testiCards.forEach((card, idx) => {
-          setTimeout(() => card.classList.add('in'), idx * 180);
+        workCards.forEach((card, idx) => {
+          setTimeout(() => card.classList.add('in'), idx * 120);
         });
-        testiIO.unobserve(entry.target);
+        workIO.unobserve(entry.target);
       });
-    }, {threshold:0.2});
-    testiIO.observe(testiGrid);
+    }, {threshold:0.1});
+    workIO.observe(workGrid);
   }
 
   // Why Us — items appear one by one on scroll
