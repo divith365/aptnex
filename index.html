@@ -32,12 +32,15 @@
     html{scroll-behavior:auto;}
     *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
   }
+  html, body{
+    overflow-x: hidden;
+    width: 100%;
+  }
   body{
     background:var(--bg);
     color:var(--text);
     font-family:var(--font-body);
     line-height:1.6;
-    overflow-x:hidden;
   }
   a{color:inherit;text-decoration:none;}
   img{max-width:100%;display:block;}
@@ -170,7 +173,18 @@
   }
   .btn-ghost:hover{border-color:var(--accent);background:var(--accent-dim);}
   /* ===== Hero right visual ===== */
-
+  .hero-img {
+    width: 300%;
+    max-width: none;
+    height: auto;
+    transform: translateX(-25%);
+  }
+  @media (max-width: 900px) {
+    .hero-img { width: 120%; transform: translateX(-8%); margin-top: 24px; }
+  }
+  @media (max-width: 640px) {
+    .hero-img { width: 100%; transform: translateX(0); max-width: 100%; margin-top: 16px; }
+  }
 
   .tag{
     font-family:var(--font-body);font-size:13px;font-weight:700;
@@ -635,7 +649,7 @@
 
       <!-- Hero right image -->
       <div class="hero-image-wrap reveal" style="position:relative;">
-        <img src="p1.png" alt="Aptnex Platform" style="width:300%; max-width:none; height:auto; transform:translateX(-25%);">
+        <img src="p1.png" alt="Aptnex Platform" class="hero-img">
       </div>
     </div>
   </section>
@@ -1005,7 +1019,7 @@
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand-slim">
-        <div class="logo"><span class="mark">AX</span>Aptnex Solutions <span style="font-size:12px; font-weight:400; opacity:0.8; margin-left:8px;">In technical collaboration with <a href="https://www.trustwork.co.in" target="_blank" style="color:var(--accent); text-decoration:underline;">trust work</a></span></div>
+        <div class="logo"><span class="mark">AX</span>Aptnex Solutions <span style="font-size:12px; font-weight:bold; margin-left:8px;">In technical collaboration with <a href="https://www.trustwork.co.in" target="_blank" style="color:var(--accent); text-decoration:underline; font-weight:bold;">trust work</a></span></div>
         <p style="font-size:13px;color:rgba(255,255,255,0.8);margin-top:8px;">Bengaluru, Karnataka</p>
       </div>
       <div class="footer-col" style="display:flex;gap:28px;align-items:center;flex-wrap:wrap;">
