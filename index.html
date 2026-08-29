@@ -621,6 +621,53 @@
     #scroll-readout{display:none;}
     .fab-top{display:none !important;}
   }
+
+  /* ================= MARQUEE STYLES ================= */
+  .marquee-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    padding: 10px 0;
+  }
+
+  .marquee-track {
+    display: inline-flex;
+    gap: 40px;
+    align-items: center;
+    /* Adjust the '45s' to make the scrolling faster or slower */
+    animation: marquee 45s linear infinite; 
+    padding-right: 40px; /* Essential: Fixes jump offset by accounting for the final gap */
+  }
+
+  /* Pause the scrolling when a user hovers over it */
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  .marquee-track img {
+    height: 85px; 
+    max-width: 230px;
+    object-fit: contain;
+    filter: grayscale(15%);
+    opacity: 0.9;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+  }
+
+  /* Logo hover effect: zooms in and removes grayscale */
+  .marquee-track img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  /* The infinite scroll animation */
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
 </style>
 </head>
 <body>
@@ -724,6 +771,31 @@
           <div class="feature-item" style="background:rgba(99,102,241,0.12); border-color:rgba(99,102,241,0.3);">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="#818cf8"><path d="M12 2a5 5 0 0 0-5 5c0 2.21 1.43 4.1 3.42 4.79L10.26 18H8v4h8v-4h-2.26l-.16-6.21A5.002 5.002 0 0 0 12 2zM10 7c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z"/></svg>
             <span style="color:#818cf8;">Networking</span>
+          </div>
+        </div>
+        <div class="marquee-wrapper reveal">
+          <div class="marquee-track">
+            <!-- SET 1 -->
+            <img src="https://solvent-network-solutions1.netlify.app/assets/strategic/Hikvision-Logo-500x281.png" alt="Hikvision">
+            <img src="https://solvent-network-solutions1.netlify.app/assets/strategic/cisco.png" alt="Cisco">
+            <img src="https://solvent-network-solutions1.netlify.app/assets/strategic/Dlink.png" alt="D-Link">
+            <img src="https://solvent-network-solutions1.netlify.app/assets/strategic/hp.jpg" alt="HP">
+            <img src="https://solvent-network-solutions1.netlify.app/assets/strategic/ruckus.svg" alt="Ruckus">
+            <img src="https://solvent-network-solutions1.netlify.app/assets/strategic/sify.png" alt="Sify">
+            <img src="https://solvent-network-solutions1.netlify.app/assets/strategic/cambium.png" alt="Cambium">
+            <img src="assets/new12-58-42.png" alt="Partner 1">
+            <img src="assets/new12-59-53.png" alt="Partner 2">
+
+            <!-- SET 2 (Duplicate for infinite seamless scrolling) -->
+            <img src="https://solvent-network-solutions1.netlify.app/assets/strategic/Hikvision-Logo-500x281.png" alt="Hikvision">
+            <img src="https://solvent-network-solutions1.netlify.app/assets/strategic/cisco.png" alt="Cisco">
+            <img src="https://solvent-network-solutions1.netlify.app/assets/strategic/Dlink.png" alt="D-Link">
+            <img src="https://solvent-network-solutions1.netlify.app/assets/strategic/hp.jpg" alt="HP">
+            <img src="https://solvent-network-solutions1.netlify.app/assets/strategic/ruckus.svg" alt="Ruckus">
+            <img src="https://solvent-network-solutions1.netlify.app/assets/strategic/sify.png" alt="Sify">
+            <img src="https://solvent-network-solutions1.netlify.app/assets/strategic/cambium.png" alt="Cambium">
+            <img src="assets/new12-58-42.png" alt="Partner 1">
+            <img src="assets/new12-59-53.png" alt="Partner 2">
           </div>
         </div>
       </div>
