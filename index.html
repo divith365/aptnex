@@ -1528,6 +1528,22 @@
       });
     });
 
+    const heroSlider = document.getElementById('heroSlider');
+    if (heroSlider) {
+      heroSlider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+      heroSlider.addEventListener('mouseleave', () => {
+        clearInterval(slideInterval);
+        startSlider();
+      });
+      
+      // For mobile devices, pause on touch
+      heroSlider.addEventListener('touchstart', () => clearInterval(slideInterval), {passive: true});
+      heroSlider.addEventListener('touchend', () => {
+        clearInterval(slideInterval);
+        startSlider();
+      }, {passive: true});
+    }
+
 
     // Initialize first tagline animation using IntersectionObserver
     const firstTagline = slides[0].querySelector('.heroTagline');
