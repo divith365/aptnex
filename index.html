@@ -191,6 +191,17 @@
     .hero-img { width: 100%; transform: translateX(0); max-width: 100%; margin-top: 16px; }
   }
 
+  .mini-slider {
+    position: relative; width: 100%; aspect-ratio: 4/3; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); overflow: hidden;
+  }
+  .mini-slider img {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
+    opacity: 0; transition: opacity 1s ease-in-out;
+  }
+  .mini-slider img.ms-active {
+    opacity: 1;
+  }
+
   .hero-tags {
     display: flex;
     gap: 10px;
@@ -755,8 +766,12 @@
               <a href="https://wa.me/919880239174" class="btn-primary" target="_blank" rel="noopener">Chat on WhatsApp →</a>
             </div>
           </div>
-          <div class="hero-image-wrap reveal" style="position:relative;">
-            <!-- will give image later leave the space -->
+          <div class="hero-image-wrap reveal mini-slider">
+            <img src="assets/image1.webp" class="mini-slide ms-active" alt="IT Infrastructure 1">
+            <img src="assets/image2.webp" class="mini-slide" alt="IT Infrastructure 2">
+            <img src="assets/image3.webp" class="mini-slide" alt="IT Infrastructure 3">
+            <img src="assets/image4.webp" class="mini-slide" alt="IT Infrastructure 4">
+            <img src="assets/image5.webp" class="mini-slide" alt="IT Infrastructure 5">
           </div>
         </div>
         <div class="features-bar wrap reveal" style="margin-top:20px; margin-bottom:20px;">
@@ -1515,6 +1530,17 @@
         startSlider();
       });
     });
+
+    // Mini Slider Logic
+    const miniSlides = document.querySelectorAll('.mini-slide');
+    if(miniSlides.length > 0) {
+      let mIdx = 0;
+      setInterval(() => {
+        miniSlides[mIdx].classList.remove('ms-active');
+        mIdx = (mIdx + 1) % miniSlides.length;
+        miniSlides[mIdx].classList.add('ms-active');
+      }, 3500);
+    }
 
     // Initialize first tagline animation using IntersectionObserver
     const firstTagline = slides[0].querySelector('.heroTagline');
